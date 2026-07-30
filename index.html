@@ -228,15 +228,23 @@ const DATA_URL = 'data/survivability_timeseries.json';
 let simData=null,currentYear=2025,yearIndex=0,allYears=[],isPlaying=false,playSpeed=500,playTimer=null,geoLayer=null,markerLayer=null,chartUninhab=null,chartPop=null,map;
 
 async function init(){
-  simData=await(await fetch(DATA_URL)).json();
-  allYears=simData.years; yearIndex=allYears.indexOf(2025); if(yearIndex<0)yearIndex=5;
-  initMap(); initCharts(); updateAll(); bindEvents();
+  try{
+    const resp=await fetch(DATA_URL);
+    if(!resp.ok)throw new Error(`HTTP ${resp.status}`);
+    simData=await resp.json();
+    allYears=simData.years; yearIndex=allYears.indexOf(2025); if(yearIndex<0)yearIndex=5;
+    initMap(); initCharts(); updateAll(); bindEvents();
+    document.getElementById('nextThreshold').innerHTML='<span style="color:#2ea89e">✓ Dashboard ready</span>';
+  }catch(e){
+    document.getElementById('nextThreshold').innerHTML=`<span style="color:#c44050">⚠ Failed to load data: ${e.message}</span>`;
+    console.error('Init failed:',e);
+  }
 }
 
 function initMap(){
   map=L.map('map',{center:[20,10],zoom:2.3,minZoom:2,maxZoom:8,zoomControl:true,attributionControl:true});
   L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',{attribution:'&copy; CARTO | H Heuristics',subdomains:'abcd',maxZoom:19}).addTo(map);
-  fetch('data/world.geo.json').then(r=>r.json()).then(geo=>{window.worldGeo=geo;updateMapLayer();}).catch(e=>console.error('GeoJSON:',e));
+  fetch('data/world.geo.json').then(r=>r.json()).then(geo=>{window.worldGeo=geo;updateMapLayer();}).catch(e=>{console.error('GeoJSON:',e);document.getElementById('nextThreshold').innerHTML='<span style="color:#e8943a">⚠ Map geometry failed to load</span>';});
   markerLayer=L.layerGroup().addTo(map); updateMarkers();
 }
 
