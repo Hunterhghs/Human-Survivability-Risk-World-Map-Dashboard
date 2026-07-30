@@ -236,7 +236,7 @@ async function init(){
 function initMap(){
   map=L.map('map',{center:[20,10],zoom:2.3,minZoom:2,maxZoom:8,zoomControl:true,attributionControl:true});
   L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',{attribution:'&copy; CARTO | H Heuristics',subdomains:'abcd',maxZoom:19}).addTo(map);
-  fetch('https://raw.githubusercontent.com/johan/world.geo.json/master/countries.geo.json').then(r=>r.json()).then(geo=>{window.worldGeo=geo;updateMapLayer();});
+  fetch('data/world.geo.json').then(r=>r.json()).then(geo=>{window.worldGeo=geo;updateMapLayer();}).catch(e=>console.error('GeoJSON:',e));
   markerLayer=L.layerGroup().addTo(map); updateMarkers();
 }
 
