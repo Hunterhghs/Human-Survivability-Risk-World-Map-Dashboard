@@ -31,7 +31,6 @@ body{
   -webkit-font-smoothing:antialiased; display:flex; flex-direction:column;
 }
 
-/* ── HEADER ── */
 .header{
   height:44px; min-height:44px; background:var(--bg-panel); border-bottom:1px solid var(--border);
   display:flex; align-items:center; justify-content:space-between; padding:0 14px; z-index:1000;
@@ -46,12 +45,9 @@ body{
   background:var(--bg-card); border:1px solid var(--border); color:var(--text-secondary);
   width:26px; height:26px; border-radius:50%; cursor:pointer; font-size:0.6rem;
   display:flex; align-items:center; justify-content:center; transition:all var(--transition);
-  font-family:var(--font-mono);
 }
 .header-year-btn:hover{background:var(--bg-hover); color:#fff; border-color:var(--border-active)}
-.header-year-display{
-  font-family:var(--font-display); font-size:1.1rem; font-weight:700; color:var(--thermal-amber); min-width:44px; text-align:center;
-}
+.header-year-display{font-family:var(--font-display); font-size:1.1rem; font-weight:700; color:var(--thermal-amber); min-width:44px; text-align:center}
 .header-play-btn{
   background:var(--thermal-amber); border:none; color:#060a0e; width:28px; height:28px;
   border-radius:50%; cursor:pointer; font-size:0.65rem; display:flex; align-items:center;
@@ -71,46 +67,24 @@ body{
 .header-stat-val{font-weight:700; color:#e8ecf0}
 .header-stat-lbl{color:var(--text-muted); text-transform:uppercase; letter-spacing:0.04em}
 
-/* ── MAIN LAYOUT ── */
 .main{flex:1; display:flex; overflow:hidden}
 
 /* ── SIDEBARS ── */
-.sidebar{
-  width:300px; min-width:300px; background:var(--bg-panel); border-color:var(--border);
-  display:flex; flex-direction:column; overflow-y:auto; overflow-x:hidden;
-  scrollbar-width:thin; scrollbar-color:var(--border) transparent; z-index:10;
-}
+.sidebar{width:300px; min-width:300px; background:var(--bg-panel); display:flex; flex-direction:column; overflow-y:auto; overflow-x:hidden; scrollbar-width:thin; scrollbar-color:var(--border) transparent; z-index:10}
 .sidebar-left{border-right:1px solid var(--border)}
 .sidebar-right{border-left:1px solid var(--border)}
 .sidebar::-webkit-scrollbar{width:3px}
 .sidebar::-webkit-scrollbar-thumb{background:var(--border); border-radius:3px}
 .sidebar-content{padding:8px 10px}
-
-/* Sidebar toggle buttons */
-.sidebar-toggle{
-  position:absolute; top:50px; z-index:920; width:20px; height:40px;
-  background:var(--bg-panel); border:1px solid var(--border); color:var(--text-secondary);
-  cursor:pointer; display:flex; align-items:center; justify-content:center; font-size:0.55rem;
-  transition:all var(--transition); writing-mode:vertical-rl;
-}
-.sidebar-toggle-left{left:300px; border-left:none; border-radius:0 4px 4px 0}
-.sidebar-toggle-right{right:300px; border-right:none; border-radius:4px 0 0 4px}
-.sidebar-toggle:hover{background:var(--bg-hover); color:#fff}
 .sidebar-left.collapsed{margin-left:-300px}
-.sidebar-left.collapsed + .sidebar-toggle-left{left:0}
 .sidebar-right.collapsed{margin-right:-300px}
-.sidebar-right.collapsed ~ .sidebar-toggle-right{right:0}
 
-/* ── MAP ── */
 .map-wrap{flex:1; position:relative; overflow:hidden}
 #map{width:100%; height:100%; background:var(--bg-void)}
 
 /* ── KPI CARDS ── */
 .kpi-grid{display:grid; grid-template-columns:1fr 1fr; gap:5px; margin-bottom:8px}
-.kpi-card{
-  background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius);
-  padding:7px 9px; transition:all var(--transition); cursor:default;
-}
+.kpi-card{background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius); padding:7px 9px; transition:all var(--transition); cursor:default}
 .kpi-card:hover{background:var(--bg-hover); border-color:var(--border-active)}
 .kpi-card .kpi-label{font-size:0.47rem; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.06em; font-weight:600; margin-bottom:2px}
 .kpi-card .kpi-value{font-size:0.95rem; font-weight:700; font-family:var(--font-display); color:#e8ecf0}
@@ -118,41 +92,45 @@ body{
 .kpi-card.danger .kpi-value{color:var(--critical-crimson)}
 .kpi-card.safe .kpi-value{color:var(--safe-teal)}
 
-/* ── SECTION HEADERS ── */
 .section-label{display:flex; align-items:center; gap:5px; margin-bottom:5px}
 .section-dot{width:5px; height:5px; border-radius:50%; background:var(--thermal-amber); flex:none}
 .section-text{font-size:0.5rem; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.08em}
 
-/* ── CHART PANELS ── */
 .chart-panel{background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius); padding:7px 9px; margin-bottom:7px}
 .chart-panel h4{font-size:0.5rem; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:4px}
 .chart-wrap{position:relative; height:130px}
 
-/* ── NEXT THRESHOLD ── */
-.threshold-box{
-  background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius);
-  padding:7px 9px; margin-bottom:7px; font-size:0.5rem; line-height:1.5; color:var(--text-secondary);
-}
+.threshold-box{background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius); padding:7px 9px; margin-bottom:7px; font-size:0.5rem; line-height:1.5; color:var(--text-secondary)}
 
-/* ── REGION DETAIL ── */
-.region-detail{display:none}
-.region-detail.active{display:block}
-.region-name{font-family:var(--font-display); font-size:0.8rem; font-weight:700; color:#e8ecf0}
-.region-country{font-size:0.5rem; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:6px}
-.region-stat-row{display:flex; justify-content:space-between; padding:3px 0; border-bottom:1px solid rgba(255,255,255,0.03); font-size:0.5rem}
-.region-stat-label{color:var(--text-muted)}
-.region-stat-val{font-weight:600; color:#e8ecf0}
-.region-stat-val.danger{color:var(--critical-crimson)}
-.region-stat-val.warn{color:var(--thermal-amber)}
-.region-stat-val.safe{color:var(--safe-teal)}
+/* ── COUNTRY/REGION DETAIL ── */
+.detail-name{font-family:var(--font-display); font-size:0.8rem; font-weight:700; color:#e8ecf0}
+.detail-sub{font-size:0.5rem; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:6px}
+.stat-row{display:flex; justify-content:space-between; padding:3px 0; border-bottom:1px solid rgba(255,255,255,0.03); font-size:0.5rem}
+.stat-label{color:var(--text-muted)}
+.stat-val{font-weight:600; color:#e8ecf0}
+.stat-val.danger{color:var(--critical-crimson)}
+.stat-val.warn{color:var(--thermal-amber)}
+.stat-val.safe{color:var(--safe-teal)}
 
-/* ── LEGEND (in right sidebar) ── */
+/* ── CONTINENT TABLE ── */
+.continent-table{width:100%; border-collapse:collapse; font-size:0.47rem; margin-bottom:7px}
+.continent-table th{text-align:left; padding:3px 5px; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.05em; border-bottom:1px solid var(--border); font-weight:600}
+.continent-table td{padding:3px 5px; border-bottom:1px solid rgba(255,255,255,0.03); color:#e8ecf0}
+.continent-table tr:hover td{background:var(--bg-hover)}
+.continent-table .ct-si{font-weight:700}
+
+/* ── HOTTEST REGIONS ── */
+.hotlist-item{display:flex; align-items:center; gap:5px; padding:2px 0; font-size:0.47rem; border-bottom:1px solid rgba(255,255,255,0.02)}
+.hotlist-rank{color:var(--text-muted); min-width:12px; font-weight:600}
+.hotlist-name{flex:1; color:#e8ecf0}
+.hotlist-val{font-weight:700; min-width:40px; text-align:right}
+
 .legend-box{margin-top:7px}
 .legend-row{display:flex; align-items:center; gap:6px; margin:2px 0; font-size:0.47rem}
 .legend-swatch{width:10px; height:10px; border-radius:2px; flex:none}
 .legend-label{color:var(--text-secondary); text-transform:uppercase; letter-spacing:0.03em}
 
-/* ── LEAFLET OVERRIDES ── */
+/* ── LEAFLET ── */
 .leaflet-container{background:var(--bg-void)!important; font-family:var(--font-mono)}
 .leaflet-control-zoom a{background:var(--bg-panel)!important; color:#e8ecf0!important; border-color:var(--border)!important}
 .leaflet-control-zoom a:hover{background:var(--bg-hover)!important}
@@ -164,7 +142,6 @@ body{
 </head>
 <body>
 
-<!-- HEADER -->
 <div class="header">
   <div class="header-left">
     <span class="header-logo">SURVIVABILITY RISK</span>
@@ -172,10 +149,10 @@ body{
     <span class="header-subtitle">Uninhabitable Zones · 2000–2500</span>
   </div>
   <div class="header-center">
-    <button class="header-year-btn" id="btnPrev" title="Previous">◀</button>
+    <button class="header-year-btn" id="btnPrev">◀</button>
     <span class="header-year-display" id="yearDisplay">2025</span>
-    <button class="header-year-btn" id="btnNext" title="Next">▶</button>
-    <button class="header-play-btn" id="btnPlay" title="Play/Pause">▶</button>
+    <button class="header-year-btn" id="btnNext">▶</button>
+    <button class="header-play-btn" id="btnPlay">▶</button>
   </div>
   <div class="header-right">
     <button class="header-speed-btn active" data-speed="500">1×</button>
@@ -183,12 +160,11 @@ body{
     <button class="header-speed-btn" data-speed="80">10×</button>
     <span class="header-stat"><span class="header-stat-val" id="hdrUninhab">0%</span><span class="header-stat-lbl">Uninhabitable</span></span>
     <span class="header-stat"><span class="header-stat-val" id="hdrPop">2.7B</span><span class="header-stat-lbl">Population</span></span>
-    <button class="header-speed-btn" id="btnLeftPanel" style="font-size:0.55rem" title="Toggle left panel">◀</button>
-    <button class="header-speed-btn" id="btnRightPanel" style="font-size:0.55rem" title="Toggle right panel">▶</button>
+    <button class="header-speed-btn" id="btnLeftPanel" title="Toggle left panel">◀</button>
+    <button class="header-speed-btn" id="btnRightPanel" title="Toggle right panel">▶</button>
   </div>
 </div>
 
-<!-- MAIN -->
 <div class="main">
   <!-- LEFT SIDEBAR -->
   <div class="sidebar sidebar-left" id="sidebarLeft">
@@ -201,33 +177,38 @@ body{
       </div>
 
       <div class="section-label"><span class="section-dot"></span><span class="section-text">Next Threshold</span></div>
-      <div class="threshold-box" id="nextThreshold">Loading data...</div>
+      <div class="threshold-box" id="nextThreshold">Loading...</div>
 
       <div class="section-label"><span class="section-dot" style="background:var(--critical-crimson)"></span><span class="section-text">Uninhabitable Growth</span></div>
-      <div class="chart-panel">
-        <div class="chart-wrap"><canvas id="chartUninhab"></canvas></div>
-      </div>
+      <div class="chart-panel"><div class="chart-wrap"><canvas id="chartUninhab"></canvas></div></div>
+
+      <div class="section-label"><span class="section-dot" style="background:var(--thermal-amber)"></span><span class="section-text">Hottest Regions (by WBT)</span></div>
+      <div class="chart-panel" id="hotlistPanel"><div id="hotlist"></div></div>
     </div>
   </div>
 
   <!-- MAP -->
-  <div class="map-wrap" id="mapWrap">
-    <div id="map"></div>
-  </div>
+  <div class="map-wrap"><div id="map"></div></div>
 
   <!-- RIGHT SIDEBAR -->
   <div class="sidebar sidebar-right" id="sidebarRight">
     <div class="sidebar-content">
       <div class="section-label"><span class="section-dot" style="background:var(--thermal-amber)"></span><span class="section-text">Population Trajectory</span></div>
-      <div class="chart-panel">
-        <div class="chart-wrap"><canvas id="chartPop"></canvas></div>
-      </div>
+      <div class="chart-panel"><div class="chart-wrap"><canvas id="chartPop"></canvas></div></div>
 
-      <div class="section-label"><span class="section-dot" style="background:var(--thermal-violet)"></span><span class="section-text">Selected Region</span></div>
-      <div class="chart-panel region-detail" id="regionPanel">
-        <div class="region-name" id="regionName">—</div>
-        <div class="region-country" id="regionCountry">Click a country on the map</div>
-        <div style="margin-top:4px" id="regionStats"></div>
+      <div class="section-label"><span class="section-dot" style="background:var(--safe-teal)"></span><span class="section-text">Continental Breakdown</span></div>
+      <div class="chart-panel"><table class="continent-table" id="continentTable"><thead><tr><th>Continent</th><th>SI</th><th>%Uninhab</th><th>Pop(M)</th></tr></thead><tbody></tbody></table></div>
+
+      <div class="section-label"><span class="section-dot" style="background:var(--thermal-violet)"></span><span class="section-text">Selected Country</span></div>
+      <div class="chart-panel" id="countryPanel">
+        <div class="detail-name" id="countryName">—</div>
+        <div class="detail-sub" id="countrySub">Click any country on the map</div>
+        <div style="margin-top:4px" id="countryStats"></div>
+        <div style="margin-top:6px; border-top:1px solid var(--border); padding-top:5px; display:none" id="regionExtra">
+          <div class="detail-name" id="regionName" style="font-size:0.7rem"></div>
+          <div class="detail-sub" id="regionSub"></div>
+          <div id="regionStats"></div>
+        </div>
       </div>
 
       <div class="legend-box">
@@ -243,209 +224,170 @@ body{
 </div>
 
 <script>
-// ── GLOBAL STATE ──
 const DATA_URL = 'data/survivability_timeseries.json';
-let simData = null, currentYear = 2025, yearIndex = 0, allYears = [];
-let isPlaying = false, playSpeed = 500, playTimer = null;
-let geoLayer = null, markerLayer = null, selectedRegion = null;
-let chartUninhab = null, chartPop = null, map;
+let simData=null,currentYear=2025,yearIndex=0,allYears=[],isPlaying=false,playSpeed=500,playTimer=null,geoLayer=null,markerLayer=null,chartUninhab=null,chartPop=null,map;
 
-// ── INIT ──
-async function init() {
-  const resp = await fetch(DATA_URL);
-  simData = await resp.json();
-  allYears = simData.years;
-  yearIndex = allYears.indexOf(2025);
-  if (yearIndex < 0) yearIndex = 5;
-
-  initMap();
-  initCharts();
-  updateAll();
-  bindEvents();
+async function init(){
+  simData=await(await fetch(DATA_URL)).json();
+  allYears=simData.years; yearIndex=allYears.indexOf(2025); if(yearIndex<0)yearIndex=5;
+  initMap(); initCharts(); updateAll(); bindEvents();
 }
 
-// ── MAP ──
-function initMap() {
-  map = L.map('map', { center: [20, 10], zoom: 2.3, minZoom: 2, maxZoom: 8, zoomControl: true, attributionControl: true });
-  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-    attribution: '&copy; CARTO | H Heuristics', subdomains: 'abcd', maxZoom: 19
-  }).addTo(map);
-  fetch('https://raw.githubusercontent.com/johan/world.geo.json/master/countries.geo.json')
-    .then(r => r.json()).then(geo => { window.worldGeo = geo; updateMapLayer(); });
-  markerLayer = L.layerGroup().addTo(map);
-  updateMarkers();
+function initMap(){
+  map=L.map('map',{center:[20,10],zoom:2.3,minZoom:2,maxZoom:8,zoomControl:true,attributionControl:true});
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png',{attribution:'&copy; CARTO | H Heuristics',subdomains:'abcd',maxZoom:19}).addTo(map);
+  fetch('https://raw.githubusercontent.com/johan/world.geo.json/master/countries.geo.json').then(r=>r.json()).then(geo=>{window.worldGeo=geo;updateMapLayer();});
+  markerLayer=L.layerGroup().addTo(map); updateMarkers();
 }
 
-function updateMapLayer() {
-  if (!window.worldGeo || !simData) return;
-  if (geoLayer) map.removeLayer(geoLayer);
-  const yearData = buildCountrySI();
-  geoLayer = L.geoJSON(window.worldGeo, {
-    style: f => ({ fillColor: siToColor(yearData[f.properties.name]), weight: 0.5, opacity: 0.6, color: '#1a2a38', fillOpacity: 0.8 }),
-    onEachFeature: (f, l) => {
-      const si = yearData[f.properties.name];
-      l.bindTooltip(`${f.properties.name}: SI ${si !== undefined ? si.toFixed(3) : '~'}`, { sticky: true, direction: 'top' });
-      l.on('click', () => selectCountry(f.properties.name));
-    }
+function updateMapLayer(){
+  if(!window.worldGeo||!simData)return;
+  if(geoLayer)map.removeLayer(geoLayer);
+  const yd=buildCountrySI();
+  geoLayer=L.geoJSON(window.worldGeo,{
+    style:f=>({fillColor:siToColor(yd[f.properties.name]),weight:0.5,opacity:0.6,color:'#1a2a38',fillOpacity:0.8}),
+    onEachFeature:(f,l)=>{l.bindTooltip(`${f.properties.name}: SI ${yd[f.properties.name]?.toFixed(3)||'~'}`,{sticky:true,direction:'top'});l.on('click',()=>selectCountry(f.properties.name));}
   }).addTo(map);
 }
 
-function updateMarkers() {
-  markerLayer.clearLayers();
-  if (!simData) return;
-  for (const [name, rd] of Object.entries(simData.regions)) {
-    const ts = rd.timeseries[String(currentYear)];
-    if (!ts) continue;
-    const si = ts['Survivability Index (SI)'];
-    const icon = L.divIcon({
-      html: `<div style="width:9px;height:9px;border-radius:50%;background:${siToColor(si)};border:1.5px solid #fff;box-shadow:0 0 5px ${siToColor(si)}"></div>`,
-      iconSize: [9,9], iconAnchor: [4,4]
-    });
-    const m = L.marker([rd.meta.lat, rd.meta.lon], { icon }).addTo(markerLayer);
-    m.bindTooltip(`${name}<br>SI: ${si.toFixed(3)} · ${ts['Habitability Status']}`, { direction: 'top' });
-    m.on('click', () => selectRegion(name));
+function updateMarkers(){
+  markerLayer.clearLayers(); if(!simData)return;
+  for(const[n,rd]of Object.entries(simData.regions)){
+    const ts=rd.timeseries[String(currentYear)]; if(!ts)continue;
+    const si=ts['Survivability Index (SI)'];
+    const icon=L.divIcon({html:`<div style="width:9px;height:9px;border-radius:50%;background:${siToColor(si)};border:1.5px solid #fff;box-shadow:0 0 5px ${siToColor(si)}"></div>`,iconSize:[9,9],iconAnchor:[4,4]});
+    const m=L.marker([rd.meta.lat,rd.meta.lon],{icon}).addTo(markerLayer);
+    m.bindTooltip(`${n}<br>SI: ${si.toFixed(3)} · ${ts['Habitability Status']}`,{direction:'top'});
+    m.on('click',()=>selectRegion(n));
   }
 }
 
-function buildCountrySI() {
-  const ys = String(currentYear), r = {};
-  for (const [c, yd] of Object.entries(simData.countries)) {
-    if (yd[ys]) r[c] = yd[ys]['Survivability Index (SI)'];
-  }
-  return r;
-}
+function buildCountrySI(){const ys=String(currentYear),r={};for(const[c,yd]of Object.entries(simData.countries)){if(yd[ys])r[c]=yd[ys]['Survivability Index (SI)'];}return r;}
+function siToColor(si){if(si===undefined||si===null)return'#1a2a38';if(si>=0.75)return'#2ea89e';if(si>=0.50)return'#c49a3c';if(si>=0.25)return'#d97040';if(si>=0.05)return'#c44050';return'#6b3fa0';}
+function siLabel(si){if(si===undefined)return'No Data';if(si>=0.75)return'Safe / Low Risk';if(si>=0.50)return'Moderate Stress';if(si>=0.25)return'High / Critical Risk';if(si>=0.05)return'Uninhabitable Zone';return'Extinction Zone';}
+function cls(si){if(si===undefined)return'';if(si>=0.75)return'safe';if(si>=0.50)return'';if(si>=0.25)return'warn';return'danger';}
 
-function siToColor(si) {
-  if (si === undefined || si === null) return '#1a2a38';
-  if (si >= 0.75) return '#2ea89e'; if (si >= 0.50) return '#c49a3c';
-  if (si >= 0.25) return '#d97040'; if (si >= 0.05) return '#c44050';
-  return '#6b3fa0';
-}
-
-// ── REGION SELECTION ──
-function selectCountry(name) {
-  for (const [rn, rd] of Object.entries(simData.regions)) {
-    if (rd.meta.country === name) { selectRegion(rn); return; }
-  }
-  const sn = { 'United States of America': 'USA', 'Russian Federation': 'Russia', 'Iran (Islamic Republic of)': 'Iran', 'Democratic Republic of the Congo': 'DR Congo' };
-  const s = sn[name];
-  if (s) { for (const [rn, rd] of Object.entries(simData.regions)) { if (rd.meta.country === s) { selectRegion(rn); return; } } }
-}
-
-function selectRegion(rn) { selectedRegion = rn; updateRegionPanel(); }
-
-function updateRegionPanel() {
-  const p = document.getElementById('regionPanel');
-  if (!selectedRegion || !simData) { p.classList.remove('active'); return; }
-  p.classList.add('active');
-  const rd = simData.regions[selectedRegion], m = rd.meta, ts = rd.timeseries[String(currentYear)];
-  if (!ts) return;
-  document.getElementById('regionName').textContent = selectedRegion;
-  document.getElementById('regionCountry').textContent = `${m.country} · ${m.continent} · ${m.lat}°, ${m.lon}°`;
-  const stats = [
-    ['MAT', `${ts['MAT (°C)']}°C`, ts['MAT (°C)'] > 30 ? 'danger' : ts['MAT (°C)'] > 25 ? 'warn' : ''],
-    ['Max WBT', `${ts['Max WBT (°C)']}°C`, ts['Max WBT (°C)'] >= 35 ? 'danger' : ts['Max WBT (°C)'] >= 31 ? 'warn' : ''],
-    ['Days ≥ 110°F', ts['Days >= 110°F'], ts['Days >= 110°F'] > 60 ? 'danger' : ts['Days >= 110°F'] > 30 ? 'warn' : ''],
-    ['PM2.5', `${ts['PM2.5 (µg/m³)']} µg/m³`, ts['PM2.5 (µg/m³)'] > 50 ? 'danger' : ts['PM2.5 (µg/m³)'] > 25 ? 'warn' : ''],
-    ['Water Stress', `${ts['Water Stress Index']}/100`, ts['Water Stress Index'] > 75 ? 'danger' : ts['Water Stress Index'] > 50 ? 'warn' : ''],
-    ['Adaptive Cap', `${ts['Adaptive Cap (%)']}%`, ts['Adaptive Cap (%)'] < 30 ? 'danger' : ts['Adaptive Cap (%)'] < 50 ? 'warn' : 'safe'],
-    ['Survivability SI', ts['Survivability Index (SI)'].toFixed(3), ts['Survivability Index (SI)'] < 0.25 ? 'danger' : ts['Survivability Index (SI)'] < 0.50 ? 'warn' : 'safe'],
-    ['Status', ts['Habitability Status'], ts['Habitability Status'].includes('Uninhabitable') ? 'danger' : ts['Habitability Status'].includes('Critical') ? 'warn' : 'safe'],
-    ['Population', `${ts['Population (M)']}M`, ''], ['Excess Deaths', `${ts['Cumul. Excess Mortality (M)']}M`, ts['Cumul. Excess Mortality (M)'] > 100 ? 'danger' : '']
+// ── COUNTRY SELECTION (works for ALL countries) ──
+function selectCountry(name){
+  const cd=simData.countries[name];
+  if(!cd)return;
+  const ts=cd[String(currentYear)]; if(!ts)return;
+  const si=ts['Survivability Index (SI)'];
+  document.getElementById('countryName').textContent=name;
+  document.getElementById('countrySub').textContent=`SI: ${si.toFixed(3)} · ${siLabel(si)}`;
+  const stats=[
+    ['MAT',`${ts['MAT (°C)']}°C`,cls(ts['MAT (°C)']>30?0.1:ts['MAT (°C)']>25?0.3:0.8)],
+    ['Max WBT',`${ts['Max WBT (°C)']}°C`,cls(ts['Max WBT (°C)']>=35?0.01:ts['Max WBT (°C)']>=31?0.3:0.8)],
+    ['Days ≥ 110°F',ts['Days >= 110°F'],cls(ts['Days >= 110°F']>60?0.01:ts['Days >= 110°F']>30?0.3:0.8)],
+    ['PM2.5',`${ts['PM2.5 (µg/m³)']} µg/m³`,cls(ts['PM2.5 (µg/m³)']>50?0.01:ts['PM2.5 (µg/m³)']>25?0.3:0.8)],
+    ['Water Stress',`${ts['Water Stress Index']}/100`,cls(ts['Water Stress Index']>75?0.01:ts['Water Stress Index']>50?0.3:0.8)],
+    ['Adaptive Cap',`${ts['Adaptive Cap (%)']}%`,ts['Adaptive Cap (%)']<30?'danger':ts['Adaptive Cap (%)']<50?'warn':'safe']
   ];
-  document.getElementById('regionStats').innerHTML = stats.map(([l,v,c]) => `<div class="region-stat-row"><span class="region-stat-label">${l}</span><span class="region-stat-val ${c}">${v}</span></div>`).join('');
+  document.getElementById('countryStats').innerHTML=stats.map(([l,v,c])=>`<div class="stat-row"><span class="stat-label">${l}</span><span class="stat-val ${c}">${v}</span></div>`).join('');
+  
+  // Check for matching study region
+  const sn={'United States of America':'USA','Russian Federation':'Russia','Iran (Islamic Republic of)':'Iran','Democratic Republic of the Congo':'DR Congo'};
+  let regionName=name;
+  for(const[rn,rd]of Object.entries(simData.regions)){if(rd.meta.country===name||rd.meta.country===(sn[name]||'')){regionName=rn;break;}}
+  if(simData.regions[regionName])selectRegion(regionName);else{document.getElementById('regionExtra').style.display='none';}
+}
+
+function selectRegion(rn){
+  const rd=simData.regions[rn]; if(!rd)return;
+  const ts=rd.timeseries[String(currentYear)]; if(!ts)return;
+  document.getElementById('regionExtra').style.display='block';
+  document.getElementById('regionName').textContent=rn;
+  document.getElementById('regionSub').textContent=`${rd.meta.country} · ${rd.meta.continent} · ${rd.meta.lat}°, ${rd.meta.lon}°`;
+  const stats=[
+    ['MAT',`${ts['MAT (°C)']}°C`,cls(ts['MAT (°C)']>30?0.1:ts['MAT (°C)']>25?0.3:0.8)],
+    ['Max WBT',`${ts['Max WBT (°C)']}°C`,cls(ts['Max WBT (°C)']>=35?0.01:ts['Max WBT (°C)']>=31?0.3:0.8)],
+    ['Days ≥ 110°F',ts['Days >= 110°F'],cls(ts['Days >= 110°F']>60?0.01:ts['Days >= 110°F']>30?0.3:0.8)],
+    ['PM2.5',`${ts['PM2.5 (µg/m³)']} µg/m³`,cls(ts['PM2.5 (µg/m³)']>50?0.01:ts['PM2.5 (µg/m³)']>25?0.3:0.8)],
+    ['Water Stress',`${ts['Water Stress Index']}/100`,cls(ts['Water Stress Index']>75?0.01:ts['Water Stress Index']>50?0.3:0.8)],
+    ['Adaptive Cap',`${ts['Adaptive Cap (%)']}%`,ts['Adaptive Cap (%)']<30?'danger':ts['Adaptive Cap (%)']<50?'warn':'safe'],
+    ['Survivability SI',ts['Survivability Index (SI)'].toFixed(3),cls(ts['Survivability Index (SI)'])],
+    ['Status',ts['Habitability Status'],ts['Status']?.includes('Uninhabitable')?'danger':ts['Status']?.includes('Critical')?'warn':'safe'],
+    ['Population',`${ts['Population (M)']}M`,''],['Excess Deaths',`${ts['Cumul. Excess Mortality (M)']}M`,ts['Cumul. Excess Mortality (M)']>100?'danger':'']
+  ];
+  document.getElementById('regionStats').innerHTML=stats.map(([l,v,c])=>`<div class="stat-row"><span class="stat-label">${l}</span><span class="stat-val ${c}">${v}</span></div>`).join('');
+}
+
+// ── CONTINENT TABLE ──
+function updateContinentTable(){
+  const cont=simData.continental[String(currentYear)];
+  if(!cont)return;
+  const order=['Africa','Asia','Middle East','South America','North America','Oceania','Europe'];
+  document.getElementById('continentTable').querySelector('tbody').innerHTML=order.filter(c=>cont[c]).map(c=>{
+    const d=cont[c]; const si=d.avgSI;
+    return`<tr><td>${c}</td><td class="ct-si" style="color:${siToColor(si)}">${si.toFixed(3)}</td><td>${d.pctUninhabitable?.toFixed(1)||'-'}%</td><td>${d.totalPop?.toFixed(0)||'-'}</td></tr>`;
+  }).join('');
+}
+
+// ── HOTTEST REGIONS ──
+function updateHotlist(){
+  const regions=[];
+  for(const[n,rd]of Object.entries(simData.regions)){
+    const ts=rd.timeseries[String(currentYear)]; if(!ts)continue;
+    regions.push({name:n,wbt:ts['Max WBT (°C)'],si:ts['Survivability Index (SI)'],status:ts['Habitability Status']});
+  }
+  regions.sort((a,b)=>b.wbt-a.wbt);
+  document.getElementById('hotlist').innerHTML=regions.slice(0,10).map((r,i)=>`<div class="hotlist-item"><span class="hotlist-rank">${i+1}</span><span class="hotlist-name">${r.name}</span><span class="hotlist-val" style="color:${siToColor(r.si)}">${r.wbt.toFixed(1)}°C</span></div>`).join('');
 }
 
 // ── CHARTS ──
-function initCharts() {
-  chartUninhab = new Chart(document.getElementById('chartUninhab'), {
-    type: 'line', data: { labels: [], datasets: [{ label: '% Uninhabitable', data: [], borderColor: '#c44050', backgroundColor: 'rgba(196,64,80,0.1)', fill: true, borderWidth: 1.5, pointRadius: 0, tension: 0.3 }] },
-    options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } },
-      scales: { x: { ticks: { color: '#4a5a6a', font: { size: 7 }, maxTicksLimit: 6 }, grid: { color: '#1a2a38' } },
-        y: { ticks: { color: '#4a5a6a', font: { size: 7 }, callback: v => v + '%' }, grid: { color: '#1a2a38' }, min: 0, max: 100 } } }
-  });
-  chartPop = new Chart(document.getElementById('chartPop'), {
-    type: 'line', data: { labels: [], datasets: [{ label: 'Population (B)', data: [], borderColor: '#e8943a', backgroundColor: 'rgba(232,148,58,0.08)', fill: true, borderWidth: 1.5, pointRadius: 0, tension: 0.3 }] },
-    options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } },
-      scales: { x: { ticks: { color: '#4a5a6a', font: { size: 7 }, maxTicksLimit: 6 }, grid: { color: '#1a2a38' } },
-        y: { ticks: { color: '#4a5a6a', font: { size: 7 }, callback: v => v.toFixed(1) + 'B' }, grid: { color: '#1a2a38' }, min: 0 } } }
-  });
+function initCharts(){
+  chartUninhab=new Chart(document.getElementById('chartUninhab'),{type:'line',data:{labels:[],datasets:[{label:'% Uninhabitable',data:[],borderColor:'#c44050',backgroundColor:'rgba(196,64,80,0.1)',fill:true,borderWidth:1.5,pointRadius:0,tension:0.3}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{ticks:{color:'#4a5a6a',font:{size:7},maxTicksLimit:6},grid:{color:'#1a2a38'}},y:{ticks:{color:'#4a5a6a',font:{size:7},callback:v=>v+'%'},grid:{color:'#1a2a38'},min:0,max:100}}}});
+  chartPop=new Chart(document.getElementById('chartPop'),{type:'line',data:{labels:[],datasets:[{label:'Population (B)',data:[],borderColor:'#e8943a',backgroundColor:'rgba(232,148,58,0.08)',fill:true,borderWidth:1.5,pointRadius:0,tension:0.3}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{ticks:{color:'#4a5a6a',font:{size:7},maxTicksLimit:6},grid:{color:'#1a2a38'}},y:{ticks:{color:'#4a5a6a',font:{size:7},callback:v=>v.toFixed(1)+'B'},grid:{color:'#1a2a38'},min:0}}});
 }
 
-function updateCharts() {
-  if (!simData) return;
-  const labels = allYears.filter(y => y % 10 === 0 || y === 2000 || y === 2025 || y === 2500);
-  chartUninhab.data.labels = labels;
-  chartUninhab.data.datasets[0].data = labels.map(y => { const g = simData.global[String(y)]; return g ? g.pctUninhabitable : null; });
-  chartPop.data.labels = labels;
-  chartPop.data.datasets[0].data = labels.map(y => { const g = simData.global[String(y)]; return g ? g.totalPop / 1000 : null; });
-  chartUninhab.update('none'); chartPop.update('none');
+function updateCharts(){
+  if(!simData)return;
+  const labels=allYears.filter(y=>y%10===0||y===2000||y===2025||y===2500);
+  chartUninhab.data.labels=labels;chartUninhab.data.datasets[0].data=labels.map(y=>{const g=simData.global[String(y)];return g?g.pctUninhabitable:null;});
+  chartPop.data.labels=labels;chartPop.data.datasets[0].data=labels.map(y=>{const g=simData.global[String(y)];return g?g.totalPop/1000:null;});
+  chartUninhab.update('none');chartPop.update('none');
 }
 
-// ── UPDATE ALL ──
-function updateAll() {
-  document.getElementById('yearDisplay').textContent = currentYear;
-  const g = simData.global[String(currentYear)];
-  if (g) {
-    document.getElementById('kpiSi').querySelector('.kpi-value').textContent = g.avgSI.toFixed(3);
-    document.getElementById('kpiUninhab').querySelector('.kpi-value').textContent = g.pctUninhabitable.toFixed(1) + '%';
-    document.getElementById('kpiPop').querySelector('.kpi-value').textContent = (g.totalPop / 1000).toFixed(1) + 'B';
-    document.getElementById('kpiMort').querySelector('.kpi-value').textContent = (g.totalMortality / 1000).toFixed(2) + 'B';
-    document.getElementById('hdrUninhab').textContent = g.pctUninhabitable.toFixed(1) + '%';
-    document.getElementById('hdrPop').textContent = (g.totalPop / 1000).toFixed(1) + 'B';
+function updateAll(){
+  document.getElementById('yearDisplay').textContent=currentYear;
+  const g=simData.global[String(currentYear)];
+  if(g){
+    document.getElementById('kpiSi').querySelector('.kpi-value').textContent=g.avgSI.toFixed(3);
+    document.getElementById('kpiUninhab').querySelector('.kpi-value').textContent=g.pctUninhabitable.toFixed(1)+'%';
+    document.getElementById('kpiPop').querySelector('.kpi-value').textContent=(g.totalPop/1000).toFixed(1)+'B';
+    document.getElementById('kpiMort').querySelector('.kpi-value').textContent=(g.totalMortality/1000).toFixed(2)+'B';
+    document.getElementById('hdrUninhab').textContent=g.pctUninhabitable.toFixed(1)+'%';
+    document.getElementById('hdrPop').textContent=(g.totalPop/1000).toFixed(1)+'B';
   }
-  updateNextThreshold(); updateMapLayer(); updateMarkers(); updateRegionPanel();
+  updateNextThreshold(); updateMapLayer(); updateMarkers(); updateContinentTable(); updateHotlist();
+  // Refresh selected country data
+  const cn=document.getElementById('countryName').textContent;
+  if(cn&&cn!=='—')selectCountry(cn);
 }
 
-function updateNextThreshold() {
-  const el = document.getElementById('nextThreshold');
-  const fu = simData.first_uninhabitable;
-  let nr = null, ny = 9999;
-  for (const [r, y] of Object.entries(fu)) { if (y > currentYear && y < ny) { ny = y; nr = r; } }
-  if (nr) {
-    const m = simData.region_meta[nr];
-    el.innerHTML = `<strong style="color:#c44050">${nr}</strong> (${m.country})<br>Uninhabitable in <strong>${ny}</strong> — <span style="color:#e8943a">${ny - currentYear} years</span>`;
-  } else {
-    const g = simData.global[String(currentYear)];
-    el.innerHTML = g && g.pctUninhabitable > 90
-      ? '<span style="color:#6b3fa0">All regions uninhabitable.</span> Only boreal refugia remain.'
-      : 'No remaining thresholds to cross.';
-  }
+function updateNextThreshold(){
+  const el=document.getElementById('nextThreshold'),fu=simData.first_uninhabitable;
+  let nr=null,ny=9999;
+  for(const[r,y]of Object.entries(fu)){if(y>currentYear&&y<ny){ny=y;nr=r;}}
+  if(nr){const m=simData.region_meta[nr];el.innerHTML=`<strong style="color:#c44050">${nr}</strong> (${m.country})<br>Uninhabitable in <strong>${ny}</strong> — <span style="color:#e8943a">${ny-currentYear} years</span>`;}
+  else{const g=simData.global[String(currentYear)];el.innerHTML=g&&g.pctUninhabitable>90?'<span style="color:#6b3fa0">All regions uninhabitable.</span> Only boreal refugia remain.':'No remaining thresholds to cross.';}
 }
 
-// ── EVENTS ──
-function bindEvents() {
-  document.getElementById('btnPrev').addEventListener('click', () => { if (yearIndex > 0) { yearIndex--; currentYear = allYears[yearIndex]; updateAll(); } });
-  document.getElementById('btnNext').addEventListener('click', () => { if (yearIndex < allYears.length - 1) { yearIndex++; currentYear = allYears[yearIndex]; updateAll(); } });
-  document.getElementById('btnPlay').addEventListener('click', togglePlay);
-  document.querySelectorAll('.header-speed-btn[data-speed]').forEach(b => {
-    b.addEventListener('click', function() {
-      document.querySelectorAll('.header-speed-btn[data-speed]').forEach(x => x.classList.remove('active'));
-      this.classList.add('active'); playSpeed = parseInt(this.dataset.speed);
-      if (isPlaying) { stopPlay(); startPlay(); }
-    });
-  });
-  document.getElementById('btnLeftPanel').addEventListener('click', () => document.getElementById('sidebarLeft').classList.toggle('collapsed'));
-  document.getElementById('btnRightPanel').addEventListener('click', () => document.getElementById('sidebarRight').classList.toggle('collapsed'));
-  document.addEventListener('keydown', e => {
-    if (e.key === 'ArrowLeft') document.getElementById('btnPrev').click();
-    if (e.key === 'ArrowRight') document.getElementById('btnNext').click();
-    if (e.key === ' ') { e.preventDefault(); togglePlay(); }
-  });
+function bindEvents(){
+  document.getElementById('btnPrev').addEventListener('click',()=>{if(yearIndex>0){yearIndex--;currentYear=allYears[yearIndex];updateAll();}});
+  document.getElementById('btnNext').addEventListener('click',()=>{if(yearIndex<allYears.length-1){yearIndex++;currentYear=allYears[yearIndex];updateAll();}});
+  document.getElementById('btnPlay').addEventListener('click',togglePlay);
+  document.querySelectorAll('.header-speed-btn[data-speed]').forEach(b=>{b.addEventListener('click',function(){document.querySelectorAll('.header-speed-btn[data-speed]').forEach(x=>x.classList.remove('active'));this.classList.add('active');playSpeed=parseInt(this.dataset.speed);if(isPlaying){stopPlay();startPlay();}});});
+  document.getElementById('btnLeftPanel').addEventListener('click',()=>document.getElementById('sidebarLeft').classList.toggle('collapsed'));
+  document.getElementById('btnRightPanel').addEventListener('click',()=>document.getElementById('sidebarRight').classList.toggle('collapsed'));
+  document.addEventListener('keydown',e=>{if(e.key==='ArrowLeft')document.getElementById('btnPrev').click();if(e.key==='ArrowRight')document.getElementById('btnNext').click();if(e.key===' '){e.preventDefault();togglePlay();}});
 }
+function togglePlay(){isPlaying?stopPlay():startPlay();}
+function startPlay(){isPlaying=true;document.getElementById('btnPlay').textContent='⏸';document.getElementById('btnPlay').classList.add('playing');playStep();}
+function stopPlay(){isPlaying=false;document.getElementById('btnPlay').textContent='▶';document.getElementById('btnPlay').classList.remove('playing');if(playTimer)clearTimeout(playTimer);}
+function playStep(){if(!isPlaying)return;if(yearIndex<allYears.length-1){yearIndex++;currentYear=allYears[yearIndex];updateAll();playTimer=setTimeout(playStep,playSpeed);}else stopPlay();}
 
-function togglePlay() { isPlaying ? stopPlay() : startPlay(); }
-function startPlay() {
-  isPlaying = true; document.getElementById('btnPlay').textContent = '⏸'; document.getElementById('btnPlay').classList.add('playing'); playStep();
-}
-function stopPlay() { isPlaying = false; document.getElementById('btnPlay').textContent = '▶'; document.getElementById('btnPlay').classList.remove('playing'); if (playTimer) clearTimeout(playTimer); }
-function playStep() {
-  if (!isPlaying) return;
-  if (yearIndex < allYears.length - 1) { yearIndex++; currentYear = allYears[yearIndex]; updateAll(); playTimer = setTimeout(playStep, playSpeed); }
-  else stopPlay();
-}
-
-document.addEventListener('DOMContentLoaded', init);
+document.addEventListener('DOMContentLoaded',init);
 </script>
 </body>
 </html>
