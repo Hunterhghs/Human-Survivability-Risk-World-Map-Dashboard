@@ -394,37 +394,6 @@ function buildCountrySI() {
       result[country] = yd[yearStr]['Survivability Index (SI)'];
     }
   }
-  // Also add fallback names for common GeoJSON mismatches
-  const aliases = {
-    'United States of America': result['USA'],
-    'United States': result['USA'],
-    'Russian Federation': result['Russia'],
-    'Iran (Islamic Republic of)': result['Iran'],
-    'Viet Nam': result['Vietnam'] || 0.5,
-    'Democratic Republic of the Congo': result['DR Congo'],
-    'Congo': result['DR Congo'],
-    'Syrian Arab Republic': 0.3,
-    'Saudi Arabia': result['Saudi Arabia'],
-    'Egypt': result['Egypt'],
-    'China': result['China'],
-    'India': result['India'],
-    'Pakistan': result['Pakistan'],
-    'Bangladesh': result['Bangladesh'],
-    'Indonesia': result['Indonesia'],
-    'Nigeria': result['Nigeria'],
-    'Niger': result['Niger'],
-    'Brazil': result['Brazil'],
-    'Mexico': result['Mexico'],
-    'Guatemala': result['Guatemala'],
-    'Argentina': result['Argentina'],
-    'Canada': result['Canada'],
-    'Australia': result['Australia'],
-    'Germany': result['Germany'],
-    'Italy': result['Italy'],
-    'Spain': result['Spain'],
-    'Iraq': result['Iraq']
-  };
-  Object.assign(result, aliases);
   return result;
 }
 
@@ -448,19 +417,27 @@ function siToLabel(si) {
 
 // ── REGION SELECTION ──
 function selectCountry(countryName) {
-  // Find matching region
+  // Look up by GeoJSON name directly (data now has GeoJSON-compatible names)
   for (const [rname, rdata] of Object.entries(simData.regions)) {
-    if (rdata.meta.country === countryName || 
-        rdata.meta.country === countryName.replace('United States of America', 'USA').replace('Russian Federation', 'Russia')) {
+    if (rdata.meta.country === countryName) {
       selectRegion(rname);
       return;
     }
   }
-  // Try case-insensitive
-  for (const [rname, rdata] of Object.entries(simData.regions)) {
-    if (rdata.meta.country.toLowerCase() === countryName.toLowerCase()) {
-      selectRegion(rname);
-      return;
+  // Also check short-name variants (USA, Russia, Iran, DR Congo)
+  const shortNames = {
+    'United States of America': 'USA',
+    'Russian Federation': 'Russia',
+    'Iran (Islamic Republic of)': 'Iran',
+    'Democratic Republic of the Congo': 'DR Congo'
+  };
+  const short = shortNames[countryName];
+  if (short) {
+    for (const [rname, rdata] of Object.entries(simData.regions)) {
+      if (rdata.meta.country === short) {
+        selectRegion(rname);
+        return;
+      }
     }
   }
 }
