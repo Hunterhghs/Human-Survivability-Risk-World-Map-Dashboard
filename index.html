@@ -17,11 +17,11 @@
 :root{
   --bg-void:#060a0e; --bg-panel:#0b121a; --bg-card:#0f1822; --bg-hover:#141f2b;
   --border:#1a2a38; --border-active:#2a3d50;
-  --text-primary:#dce3ea; --text-secondary:#7a8fa0; --text-muted:#4a5a6a;
+  --text-primary:#e8ecf0; --text-secondary:#8899aa; --text-muted:#4a5a6a;
   --thermal-amber:#e8943a; --thermal-crimson:#d44a3a; --thermal-violet:#7b4fbf;
-  --safe-teal:#2ea89e; --safe-teal-dim:#1a6b64;
-  --moderate-gold:#c49a3c; --high-orange:#d97040; --critical-crimson:#c44050; --extinct-violet:#6b3fa0;
-  --radius:6px; --radius-sm:3px; --transition:0.2s ease;
+  --safe-teal:#2ea89e; --moderate-gold:#c49a3c; --high-orange:#d97040;
+  --critical-crimson:#c44050; --extinct-violet:#6b3fa0;
+  --radius:5px; --transition:0.2s ease;
   --font-mono:'JetBrains Mono',monospace; --font-display:'Space Grotesk',sans-serif;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -33,136 +33,133 @@ body{
 
 /* ── HEADER ── */
 .header{
-  height:48px; min-height:48px; background:var(--bg-panel); border-bottom:1px solid var(--border);
-  display:flex; align-items:center; justify-content:space-between; padding:0 16px; z-index:1000;
-  gap:12px;
+  height:44px; min-height:44px; background:var(--bg-panel); border-bottom:1px solid var(--border);
+  display:flex; align-items:center; justify-content:space-between; padding:0 14px; z-index:1000;
 }
-.header-left{display:flex; align-items:center; gap:10px; min-width:0}
-.header-logo{
-  font-family:var(--font-display); font-size:0.9rem; font-weight:700; color:var(--thermal-amber);
-  letter-spacing:-0.01em; white-space:nowrap;
-}
-.header-divider{width:1px; height:18px; background:var(--border)}
-.header-subtitle{font-size:0.52rem; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.10em; font-weight:600; white-space:nowrap}
+.header-left{display:flex; align-items:center; gap:8px}
+.header-logo{font-family:var(--font-display); font-size:0.85rem; font-weight:700; color:var(--thermal-amber); letter-spacing:-0.01em}
+.header-divider{width:1px; height:16px; background:var(--border)}
+.header-subtitle{font-size:0.5rem; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.09em; font-weight:600}
 
-.header-center{display:flex; align-items:center; gap:8px}
+.header-center{display:flex; align-items:center; gap:6px}
 .header-year-btn{
   background:var(--bg-card); border:1px solid var(--border); color:var(--text-secondary);
-  width:28px; height:28px; border-radius:50%; cursor:pointer; font-size:0.65rem;
+  width:26px; height:26px; border-radius:50%; cursor:pointer; font-size:0.6rem;
   display:flex; align-items:center; justify-content:center; transition:all var(--transition);
   font-family:var(--font-mono);
 }
-.header-year-btn:hover{background:var(--bg-hover); color:var(--text-primary); border-color:var(--border-active)}
+.header-year-btn:hover{background:var(--bg-hover); color:#fff; border-color:var(--border-active)}
 .header-year-display{
-  font-family:var(--font-display); font-size:1.2rem; font-weight:700; color:var(--thermal-amber);
-  min-width:48px; text-align:center;
+  font-family:var(--font-display); font-size:1.1rem; font-weight:700; color:var(--thermal-amber); min-width:44px; text-align:center;
 }
 .header-play-btn{
-  background:var(--thermal-amber); border:none; color:#060a0e; width:30px; height:30px;
-  border-radius:50%; cursor:pointer; font-size:0.7rem; display:flex; align-items:center;
+  background:var(--thermal-amber); border:none; color:#060a0e; width:28px; height:28px;
+  border-radius:50%; cursor:pointer; font-size:0.65rem; display:flex; align-items:center;
   justify-content:center; transition:all var(--transition); font-weight:700;
 }
 .header-play-btn:hover{background:#f0a84c; transform:scale(1.05)}
 .header-play-btn.playing{background:var(--critical-crimson); color:#fff}
 
-.header-right{display:flex; align-items:center; gap:10px}
+.header-right{display:flex; align-items:center; gap:8px}
 .header-speed-btn{
   background:var(--bg-card); border:1px solid var(--border); color:var(--text-muted);
-  padding:3px 8px; border-radius:var(--radius-sm); cursor:pointer; font-size:0.55rem;
-  font-family:var(--font-mono); text-transform:uppercase; letter-spacing:0.05em;
-  transition:all var(--transition);
+  padding:2px 7px; border-radius:3px; cursor:pointer; font-size:0.5rem;
+  font-family:var(--font-mono); text-transform:uppercase; letter-spacing:0.04em; transition:all var(--transition);
 }
-.header-speed-btn:hover,.header-speed-btn.active{color:var(--thermal-amber); border-color:var(--thermal-amber)}
-.header-kpi-mini{display:flex; align-items:center; gap:12px}
-.header-kpi-val{font-size:0.7rem; font-weight:700; color:var(--text-primary); font-family:var(--font-mono)}
-.header-kpi-lbl{font-size:0.5rem; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.05em}
+.header-speed-btn:hover,.header-speed-btn.active{color:#e8943a; border-color:#e8943a}
+.header-stat{display:flex; align-items:center; gap:4px; font-size:0.5rem}
+.header-stat-val{font-weight:700; color:#e8ecf0}
+.header-stat-lbl{color:var(--text-muted); text-transform:uppercase; letter-spacing:0.04em}
 
-/* ── MAIN ── */
-.main{flex:1; position:relative; overflow:hidden}
+/* ── MAIN LAYOUT ── */
+.main{flex:1; display:flex; overflow:hidden}
+
+/* ── SIDEBARS ── */
+.sidebar{
+  width:300px; min-width:300px; background:var(--bg-panel); border-color:var(--border);
+  display:flex; flex-direction:column; overflow-y:auto; overflow-x:hidden;
+  scrollbar-width:thin; scrollbar-color:var(--border) transparent; z-index:10;
+}
+.sidebar-left{border-right:1px solid var(--border)}
+.sidebar-right{border-left:1px solid var(--border)}
+.sidebar::-webkit-scrollbar{width:3px}
+.sidebar::-webkit-scrollbar-thumb{background:var(--border); border-radius:3px}
+.sidebar-content{padding:8px 10px}
+
+/* Sidebar toggle buttons */
+.sidebar-toggle{
+  position:absolute; top:50px; z-index:920; width:20px; height:40px;
+  background:var(--bg-panel); border:1px solid var(--border); color:var(--text-secondary);
+  cursor:pointer; display:flex; align-items:center; justify-content:center; font-size:0.55rem;
+  transition:all var(--transition); writing-mode:vertical-rl;
+}
+.sidebar-toggle-left{left:300px; border-left:none; border-radius:0 4px 4px 0}
+.sidebar-toggle-right{right:300px; border-right:none; border-radius:4px 0 0 4px}
+.sidebar-toggle:hover{background:var(--bg-hover); color:#fff}
+.sidebar-left.collapsed{margin-left:-300px}
+.sidebar-left.collapsed + .sidebar-toggle-left{left:0}
+.sidebar-right.collapsed{margin-right:-300px}
+.sidebar-right.collapsed ~ .sidebar-toggle-right{right:0}
+
+/* ── MAP ── */
+.map-wrap{flex:1; position:relative; overflow:hidden}
 #map{width:100%; height:100%; background:var(--bg-void)}
 
-/* ── SIDEBAR ── */
-.sidebar{
-  position:absolute; top:0; left:0; bottom:0; width:340px; background:var(--bg-panel);
-  border-right:1px solid var(--border); z-index:900; display:flex; flex-direction:column;
-  transform:translateX(0); transition:transform 0.25s ease; box-shadow:4px 0 24px rgba(0,0,0,0.5);
-}
-.sidebar.collapsed{transform:translateX(-340px)}
-.sidebar-toggle{
-  position:absolute; top:8px; left:352px; width:26px; height:26px; background:var(--bg-panel);
-  border:1px solid var(--border); border-radius:4px; color:var(--text-secondary); cursor:pointer;
-  display:flex; align-items:center; justify-content:center; font-size:0.7rem; z-index:910;
-  transition:all var(--transition);
-}
-.sidebar.collapsed + .sidebar-toggle{left:8px}
-.sidebar-toggle:hover{background:var(--bg-hover); color:var(--text-primary)}
-.sidebar-scroll{flex:1; overflow-y:auto; overflow-x:hidden; padding:10px;
-  scrollbar-width:thin; scrollbar-color:var(--border) transparent}
-.sidebar-scroll::-webkit-scrollbar{width:3px}
-.sidebar-scroll::-webkit-scrollbar-thumb{background:var(--border); border-radius:3px}
-
-/* KPI Cards */
-.kpi-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:6px; margin-bottom:10px}
+/* ── KPI CARDS ── */
+.kpi-grid{display:grid; grid-template-columns:1fr 1fr; gap:5px; margin-bottom:8px}
 .kpi-card{
   background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius);
-  padding:8px 10px; transition:all var(--transition); cursor:default;
+  padding:7px 9px; transition:all var(--transition); cursor:default;
 }
 .kpi-card:hover{background:var(--bg-hover); border-color:var(--border-active)}
-.kpi-card .kpi-label{font-size:0.5rem; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.07em; font-weight:600; margin-bottom:3px}
-.kpi-card .kpi-value{font-size:1rem; font-weight:700; color:var(--text-primary); font-family:var(--font-display)}
+.kpi-card .kpi-label{font-size:0.47rem; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.06em; font-weight:600; margin-bottom:2px}
+.kpi-card .kpi-value{font-size:0.95rem; font-weight:700; font-family:var(--font-display); color:#e8ecf0}
 .kpi-card.warn .kpi-value{color:var(--thermal-amber)}
 .kpi-card.danger .kpi-value{color:var(--critical-crimson)}
 .kpi-card.safe .kpi-value{color:var(--safe-teal)}
 
-/* Section headers */
-.section-label{
-  display:flex; align-items:center; gap:6px; margin-bottom:6px; margin-top:4px;
+/* ── SECTION HEADERS ── */
+.section-label{display:flex; align-items:center; gap:5px; margin-bottom:5px}
+.section-dot{width:5px; height:5px; border-radius:50%; background:var(--thermal-amber); flex:none}
+.section-text{font-size:0.5rem; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.08em}
+
+/* ── CHART PANELS ── */
+.chart-panel{background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius); padding:7px 9px; margin-bottom:7px}
+.chart-panel h4{font-size:0.5rem; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.06em; margin-bottom:4px}
+.chart-wrap{position:relative; height:130px}
+
+/* ── NEXT THRESHOLD ── */
+.threshold-box{
+  background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius);
+  padding:7px 9px; margin-bottom:7px; font-size:0.5rem; line-height:1.5; color:var(--text-secondary);
 }
-.section-dot{width:6px; height:6px; border-radius:50%; background:var(--thermal-amber)}
-.section-text{font-size:0.55rem; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.09em}
-.section-divider{height:1px; background:var(--border); margin:6px 0}
 
-/* Chart panels */
-.chart-panel{background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius); padding:8px 10px; margin-bottom:8px}
-.chart-panel h4{font-size:0.53rem; font-weight:700; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.07em; margin-bottom:5px}
-.chart-wrap{position:relative; height:150px}
-.chart-wrap.tall{height:200px}
-
-/* Region detail */
+/* ── REGION DETAIL ── */
 .region-detail{display:none}
 .region-detail.active{display:block}
-.region-name{font-family:var(--font-display); font-size:0.9rem; font-weight:700; color:var(--text-primary)}
-.region-country{font-size:0.58rem; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.06em}
-.region-stat-row{display:flex; justify-content:space-between; padding:4px 0; border-bottom:1px solid rgba(255,255,255,0.04); font-size:0.58rem}
+.region-name{font-family:var(--font-display); font-size:0.8rem; font-weight:700; color:#e8ecf0}
+.region-country{font-size:0.5rem; color:var(--text-muted); text-transform:uppercase; letter-spacing:0.05em; margin-bottom:6px}
+.region-stat-row{display:flex; justify-content:space-between; padding:3px 0; border-bottom:1px solid rgba(255,255,255,0.03); font-size:0.5rem}
 .region-stat-label{color:var(--text-muted)}
-.region-stat-val{color:var(--text-primary); font-weight:600}
+.region-stat-val{font-weight:600; color:#e8ecf0}
 .region-stat-val.danger{color:var(--critical-crimson)}
 .region-stat-val.warn{color:var(--thermal-amber)}
 .region-stat-val.safe{color:var(--safe-teal)}
 
-/* Legend */
-.map-legend{
-  position:absolute; bottom:20px; right:16px; background:var(--bg-panel); border:1px solid var(--border);
-  border-radius:var(--radius); padding:8px 10px; z-index:910; font-size:0.5rem;
-}
-.legend-row{display:flex; align-items:center; gap:6px; margin:2px 0}
+/* ── LEGEND (in right sidebar) ── */
+.legend-box{margin-top:7px}
+.legend-row{display:flex; align-items:center; gap:6px; margin:2px 0; font-size:0.47rem}
 .legend-swatch{width:10px; height:10px; border-radius:2px; flex:none}
-.legend-label{color:var(--text-secondary); text-transform:uppercase; letter-spacing:0.04em}
+.legend-label{color:var(--text-secondary); text-transform:uppercase; letter-spacing:0.03em}
 
-/* Leaflet overrides */
+/* ── LEAFLET OVERRIDES ── */
 .leaflet-container{background:var(--bg-void)!important; font-family:var(--font-mono)}
-.leaflet-control-zoom a{background:var(--bg-panel)!important; color:var(--text-primary)!important; border-color:var(--border)!important}
-.leaflet-control-attribution{background:rgba(6,10,14,0.85)!important; color:var(--text-muted)!important; font-size:0.5rem!important}
+.leaflet-control-zoom a{background:var(--bg-panel)!important; color:#e8ecf0!important; border-color:var(--border)!important}
+.leaflet-control-zoom a:hover{background:var(--bg-hover)!important}
+.leaflet-control-attribution{background:rgba(6,10,14,0.85)!important; color:var(--text-muted)!important; font-size:0.45rem!important}
 .leaflet-control-attribution a{color:var(--text-secondary)!important}
-
-/* Tooltip */
-.region-tooltip{
-  position:absolute; background:var(--bg-panel); border:1px solid var(--border-active);
-  border-radius:var(--radius); padding:8px 10px; z-index:950; pointer-events:none;
-  font-size:0.55rem; display:none; max-width:200px;
-}
-.region-tooltip .rt-name{font-family:var(--font-display); font-weight:700; color:var(--text-primary); margin-bottom:2px}
-.region-tooltip .rt-stat{color:var(--text-secondary)}
+.leaflet-tooltip{background:var(--bg-panel)!important; border:1px solid var(--border-active)!important; color:#e8ecf0!important; font-family:var(--font-mono)!important; font-size:0.5rem!important; padding:4px 7px!important; border-radius:3px!important; box-shadow:0 2px 8px rgba(0,0,0,0.6)!important}
+.leaflet-tooltip::before{border-top-color:var(--border-active)!important}
 </style>
 </head>
 <body>
@@ -175,64 +172,53 @@ body{
     <span class="header-subtitle">Uninhabitable Zones · 2000–2500</span>
   </div>
   <div class="header-center">
-    <button class="header-year-btn" id="btnPrev" title="Previous year">◀</button>
+    <button class="header-year-btn" id="btnPrev" title="Previous">◀</button>
     <span class="header-year-display" id="yearDisplay">2025</span>
-    <button class="header-year-btn" id="btnNext" title="Next year">▶</button>
+    <button class="header-year-btn" id="btnNext" title="Next">▶</button>
     <button class="header-play-btn" id="btnPlay" title="Play/Pause">▶</button>
   </div>
   <div class="header-right">
     <button class="header-speed-btn active" data-speed="500">1×</button>
     <button class="header-speed-btn" data-speed="200">3×</button>
     <button class="header-speed-btn" data-speed="80">10×</button>
-    <span class="header-kpi-mini">
-      <span class="header-kpi-val" id="hdrUninhab">0%</span>
-      <span class="header-kpi-lbl">Uninhabitable</span>
-    </span>
-    <span class="header-kpi-mini">
-      <span class="header-kpi-val" id="hdrPop">2.7B</span>
-      <span class="header-kpi-lbl">At Risk</span>
-    </span>
+    <span class="header-stat"><span class="header-stat-val" id="hdrUninhab">0%</span><span class="header-stat-lbl">Uninhabitable</span></span>
+    <span class="header-stat"><span class="header-stat-val" id="hdrPop">2.7B</span><span class="header-stat-lbl">Population</span></span>
+    <button class="header-speed-btn" id="btnLeftPanel" style="font-size:0.55rem" title="Toggle left panel">◀</button>
+    <button class="header-speed-btn" id="btnRightPanel" style="font-size:0.55rem" title="Toggle right panel">▶</button>
   </div>
 </div>
 
-<!-- MAIN MAP -->
+<!-- MAIN -->
 <div class="main">
-  <div id="map"></div>
-
-  <!-- SIDEBAR -->
-  <div class="sidebar" id="sidebar">
-    <div class="sidebar-scroll">
+  <!-- LEFT SIDEBAR -->
+  <div class="sidebar sidebar-left" id="sidebarLeft">
+    <div class="sidebar-content">
       <div class="kpi-grid">
-        <div class="kpi-card" id="kpiSi">
-          <div class="kpi-label">Global Avg SI</div>
-          <div class="kpi-value">0.727</div>
-        </div>
-        <div class="kpi-card danger" id="kpiUninhab">
-          <div class="kpi-label">% Uninhabitable</div>
-          <div class="kpi-value">0.0%</div>
-        </div>
-        <div class="kpi-card warn" id="kpiPop">
-          <div class="kpi-label">Population</div>
-          <div class="kpi-value">2.7B</div>
-        </div>
-        <div class="kpi-card danger" id="kpiMort">
-          <div class="kpi-label">Cumul. Excess Deaths</div>
-          <div class="kpi-value">0.0B</div>
-        </div>
+        <div class="kpi-card" id="kpiSi"><div class="kpi-label">Global Avg SI</div><div class="kpi-value">0.727</div></div>
+        <div class="kpi-card danger" id="kpiUninhab"><div class="kpi-label">% Uninhabitable</div><div class="kpi-value">0.0%</div></div>
+        <div class="kpi-card warn" id="kpiPop"><div class="kpi-label">Population</div><div class="kpi-value">2.7B</div></div>
+        <div class="kpi-card danger" id="kpiMort"><div class="kpi-label">Cumul. Excess Deaths</div><div class="kpi-value">0.0B</div></div>
       </div>
 
       <div class="section-label"><span class="section-dot"></span><span class="section-text">Next Threshold</span></div>
-      <div class="chart-panel" id="nextThreshold" style="font-size:0.58rem; color:var(--text-secondary); min-height:40px">
-        Loading data...
-      </div>
-      <div class="section-divider"></div>
+      <div class="threshold-box" id="nextThreshold">Loading data...</div>
 
-      <div class="section-label"><span class="section-dot" style="background:var(--safe-teal)"></span><span class="section-text">Uninhabitable Zone Growth</span></div>
+      <div class="section-label"><span class="section-dot" style="background:var(--critical-crimson)"></span><span class="section-text">Uninhabitable Growth</span></div>
       <div class="chart-panel">
         <div class="chart-wrap"><canvas id="chartUninhab"></canvas></div>
       </div>
+    </div>
+  </div>
 
-      <div class="section-label"><span class="section-dot" style="background:var(--high-orange)"></span><span class="section-text">Population Trajectory</span></div>
+  <!-- MAP -->
+  <div class="map-wrap" id="mapWrap">
+    <div id="map"></div>
+  </div>
+
+  <!-- RIGHT SIDEBAR -->
+  <div class="sidebar sidebar-right" id="sidebarRight">
+    <div class="sidebar-content">
+      <div class="section-label"><span class="section-dot" style="background:var(--thermal-amber)"></span><span class="section-text">Population Trajectory</span></div>
       <div class="chart-panel">
         <div class="chart-wrap"><canvas id="chartPop"></canvas></div>
       </div>
@@ -241,47 +227,36 @@ body{
       <div class="chart-panel region-detail" id="regionPanel">
         <div class="region-name" id="regionName">—</div>
         <div class="region-country" id="regionCountry">Click a country on the map</div>
-        <div style="margin-top:6px" id="regionStats"></div>
+        <div style="margin-top:4px" id="regionStats"></div>
+      </div>
+
+      <div class="legend-box">
+        <div class="section-label"><span class="section-dot" style="background:var(--safe-teal)"></span><span class="section-text">SI Tier Legend</span></div>
+        <div class="legend-row"><span class="legend-swatch" style="background:#2ea89e"></span><span class="legend-label">Safe (SI ≥ 0.75)</span></div>
+        <div class="legend-row"><span class="legend-swatch" style="background:#c49a3c"></span><span class="legend-label">Moderate (0.50–0.74)</span></div>
+        <div class="legend-row"><span class="legend-swatch" style="background:#d97040"></span><span class="legend-label">High Risk (0.25–0.49)</span></div>
+        <div class="legend-row"><span class="legend-swatch" style="background:#c44050"></span><span class="legend-label">Uninhabitable (<0.25)</span></div>
+        <div class="legend-row"><span class="legend-swatch" style="background:#6b3fa0"></span><span class="legend-label">Extinction (<0.05)</span></div>
       </div>
     </div>
-  </div>
-  <button class="sidebar-toggle" id="sidebarToggle" title="Toggle sidebar">☰</button>
-
-  <!-- MAP LEGEND -->
-  <div class="map-legend" id="legend">
-    <div class="legend-row"><span class="legend-swatch" style="background:#2ea89e"></span><span class="legend-label">Safe (SI ≥ 0.75)</span></div>
-    <div class="legend-row"><span class="legend-swatch" style="background:#c49a3c"></span><span class="legend-label">Moderate (0.50–0.74)</span></div>
-    <div class="legend-row"><span class="legend-swatch" style="background:#d97040"></span><span class="legend-label">High Risk (0.25–0.49)</span></div>
-    <div class="legend-row"><span class="legend-swatch" style="background:#c44050"></span><span class="legend-label">Uninhabitable (<0.25)</span></div>
-    <div class="legend-row"><span class="legend-swatch" style="background:#6b3fa0"></span><span class="legend-label">Extinction (<0.05)</span></div>
   </div>
 </div>
 
 <script>
 // ── GLOBAL STATE ──
 const DATA_URL = 'data/survivability_timeseries.json';
-let simData = null;
-let currentYear = 2025;
-let yearIndex = 0;
-let allYears = [];
-let isPlaying = false;
-let playSpeed = 500;
-let playTimer = null;
-let geoLayer = null;
-let markerLayer = null;
-let selectedRegion = null;
-
-// Charts
-let chartUninhab = null;
-let chartPop = null;
+let simData = null, currentYear = 2025, yearIndex = 0, allYears = [];
+let isPlaying = false, playSpeed = 500, playTimer = null;
+let geoLayer = null, markerLayer = null, selectedRegion = null;
+let chartUninhab = null, chartPop = null, map;
 
 // ── INIT ──
 async function init() {
   const resp = await fetch(DATA_URL);
   simData = await resp.json();
   allYears = simData.years;
-  yearIndex = allYears.indexOf(currentYear);
-  if (yearIndex < 0) yearIndex = 5; // default to 2025
+  yearIndex = allYears.indexOf(2025);
+  if (yearIndex < 0) yearIndex = 5;
 
   initMap();
   initCharts();
@@ -290,378 +265,187 @@ async function init() {
 }
 
 // ── MAP ──
-let map;
 function initMap() {
-  map = L.map('map', {
-    center: [20, 10],
-    zoom: 2.3,
-    minZoom: 2,
-    maxZoom: 8,
-    zoomControl: true,
-    attributionControl: true
-  });
-
-  // Dark tile layer
+  map = L.map('map', { center: [20, 10], zoom: 2.3, minZoom: 2, maxZoom: 8, zoomControl: true, attributionControl: true });
   L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
-    attribution: '&copy; <a href="https://carto.com/">CARTO</a> | H Heuristics',
-    subdomains: 'abcd',
-    maxZoom: 19
+    attribution: '&copy; CARTO | H Heuristics', subdomains: 'abcd', maxZoom: 19
   }).addTo(map);
-
-  // Load GeoJSON world countries
   fetch('https://raw.githubusercontent.com/johan/world.geo.json/master/countries.geo.json')
-    .then(r => r.json())
-    .then(geo => {
-      window.worldGeo = geo;
-      updateMapLayer();
-    });
-
-  // Region markers
+    .then(r => r.json()).then(geo => { window.worldGeo = geo; updateMapLayer(); });
   markerLayer = L.layerGroup().addTo(map);
   updateMarkers();
 }
 
 function updateMapLayer() {
   if (!window.worldGeo || !simData) return;
-
   if (geoLayer) map.removeLayer(geoLayer);
-
   const yearData = buildCountrySI();
-
   geoLayer = L.geoJSON(window.worldGeo, {
-    style: feature => {
-      const name = feature.properties.name;
-      const si = yearData[name];
-      return {
-        fillColor: siToColor(si),
-        weight: 0.5,
-        opacity: 0.6,
-        color: '#1a2a38',
-        fillOpacity: 0.75
-      };
-    },
-    onEachFeature: (feature, layer) => {
-      const name = feature.properties.name;
-      const si = yearData[name];
-      layer.bindTooltip(`${name}: SI ${si !== undefined ? si.toFixed(3) : 'N/A'}`, {
-        sticky: true, direction: 'top', offset: [0, -5],
-        className: 'leaflet-tooltip-custom'
-      });
-      layer.on('click', () => selectCountry(name));
+    style: f => ({ fillColor: siToColor(yearData[f.properties.name]), weight: 0.5, opacity: 0.6, color: '#1a2a38', fillOpacity: 0.8 }),
+    onEachFeature: (f, l) => {
+      const si = yearData[f.properties.name];
+      l.bindTooltip(`${f.properties.name}: SI ${si !== undefined ? si.toFixed(3) : '~'}`, { sticky: true, direction: 'top' });
+      l.on('click', () => selectCountry(f.properties.name));
     }
   }).addTo(map);
-
-  // Style tooltips
-  const style = document.createElement('style');
-  style.textContent = `.leaflet-tooltip-custom{background:var(--bg-panel)!important;border:1px solid var(--border-active)!important;color:var(--text-primary)!important;font-family:var(--font-mono)!important;font-size:0.55rem!important;padding:4px 8px!important;border-radius:3px!important;box-shadow:0 2px 8px rgba(0,0,0,0.5)!important}.leaflet-tooltip-custom::before{border-top-color:var(--border-active)!important}`;
-  document.head.appendChild(style);
 }
 
 function updateMarkers() {
   markerLayer.clearLayers();
   if (!simData) return;
-
-  const regions = simData.regions;
-  for (const [name, rdata] of Object.entries(regions)) {
-    const ts = rdata.timeseries[String(currentYear)];
+  for (const [name, rd] of Object.entries(simData.regions)) {
+    const ts = rd.timeseries[String(currentYear)];
     if (!ts) continue;
     const si = ts['Survivability Index (SI)'];
-    const color = siToColor(si);
-    const meta = rdata.meta;
-
     const icon = L.divIcon({
-      className: 'region-marker',
-      html: `<div style="width:10px;height:10px;border-radius:50%;background:${color};border:1.5px solid #fff;box-shadow:0 0 6px ${color}"></div>`,
-      iconSize: [10, 10],
-      iconAnchor: [5, 5]
+      html: `<div style="width:9px;height:9px;border-radius:50%;background:${siToColor(si)};border:1.5px solid #fff;box-shadow:0 0 5px ${siToColor(si)}"></div>`,
+      iconSize: [9,9], iconAnchor: [4,4]
     });
-
-    const marker = L.marker([meta.lat, meta.lon], { icon }).addTo(markerLayer);
-    marker.bindTooltip(`${name}<br>SI: ${si.toFixed(3)} · ${ts['Habitability Status']}`, {
-      className: 'leaflet-tooltip-custom', direction: 'top'
-    });
-    marker.on('click', () => selectRegion(name));
+    const m = L.marker([rd.meta.lat, rd.meta.lon], { icon }).addTo(markerLayer);
+    m.bindTooltip(`${name}<br>SI: ${si.toFixed(3)} · ${ts['Habitability Status']}`, { direction: 'top' });
+    m.on('click', () => selectRegion(name));
   }
 }
 
-// ── COUNTRY SI MAPPER ──
 function buildCountrySI() {
-  const yearStr = String(currentYear);
-  const result = {};
-  const cd = simData.countries;
-  for (const [country, yd] of Object.entries(cd)) {
-    if (yd[yearStr]) {
-      result[country] = yd[yearStr]['Survivability Index (SI)'];
-    }
+  const ys = String(currentYear), r = {};
+  for (const [c, yd] of Object.entries(simData.countries)) {
+    if (yd[ys]) r[c] = yd[ys]['Survivability Index (SI)'];
   }
-  return result;
+  return r;
 }
 
 function siToColor(si) {
   if (si === undefined || si === null) return '#1a2a38';
-  if (si >= 0.75) return '#2ea89e';
-  if (si >= 0.50) return '#c49a3c';
-  if (si >= 0.25) return '#d97040';
-  if (si >= 0.05) return '#c44050';
+  if (si >= 0.75) return '#2ea89e'; if (si >= 0.50) return '#c49a3c';
+  if (si >= 0.25) return '#d97040'; if (si >= 0.05) return '#c44050';
   return '#6b3fa0';
 }
 
-function siToLabel(si) {
-  if (si === undefined) return 'No Data';
-  if (si >= 0.75) return 'Safe / Low Risk';
-  if (si >= 0.50) return 'Moderate Stress';
-  if (si >= 0.25) return 'High / Critical Risk';
-  if (si >= 0.05) return 'Uninhabitable Zone';
-  return 'Extinction Zone';
-}
-
 // ── REGION SELECTION ──
-function selectCountry(countryName) {
-  // Look up by GeoJSON name directly (data now has GeoJSON-compatible names)
-  for (const [rname, rdata] of Object.entries(simData.regions)) {
-    if (rdata.meta.country === countryName) {
-      selectRegion(rname);
-      return;
-    }
+function selectCountry(name) {
+  for (const [rn, rd] of Object.entries(simData.regions)) {
+    if (rd.meta.country === name) { selectRegion(rn); return; }
   }
-  // Also check short-name variants (USA, Russia, Iran, DR Congo)
-  const shortNames = {
-    'United States of America': 'USA',
-    'Russian Federation': 'Russia',
-    'Iran (Islamic Republic of)': 'Iran',
-    'Democratic Republic of the Congo': 'DR Congo'
-  };
-  const short = shortNames[countryName];
-  if (short) {
-    for (const [rname, rdata] of Object.entries(simData.regions)) {
-      if (rdata.meta.country === short) {
-        selectRegion(rname);
-        return;
-      }
-    }
-  }
+  const sn = { 'United States of America': 'USA', 'Russian Federation': 'Russia', 'Iran (Islamic Republic of)': 'Iran', 'Democratic Republic of the Congo': 'DR Congo' };
+  const s = sn[name];
+  if (s) { for (const [rn, rd] of Object.entries(simData.regions)) { if (rd.meta.country === s) { selectRegion(rn); return; } } }
 }
 
-function selectRegion(rname) {
-  selectedRegion = rname;
-  updateRegionPanel();
-}
+function selectRegion(rn) { selectedRegion = rn; updateRegionPanel(); }
 
 function updateRegionPanel() {
-  const panel = document.getElementById('regionPanel');
-  if (!selectedRegion || !simData) {
-    panel.classList.remove('active');
-    return;
-  }
-  panel.classList.add('active');
-
-  const rdata = simData.regions[selectedRegion];
-  const meta = rdata.meta;
-  const ts = rdata.timeseries[String(currentYear)];
+  const p = document.getElementById('regionPanel');
+  if (!selectedRegion || !simData) { p.classList.remove('active'); return; }
+  p.classList.add('active');
+  const rd = simData.regions[selectedRegion], m = rd.meta, ts = rd.timeseries[String(currentYear)];
   if (!ts) return;
-
   document.getElementById('regionName').textContent = selectedRegion;
-  document.getElementById('regionCountry').textContent = `${meta.country} · ${meta.continent} · ${meta.lat}°, ${meta.lon}°`;
-
+  document.getElementById('regionCountry').textContent = `${m.country} · ${m.continent} · ${m.lat}°, ${m.lon}°`;
   const stats = [
     ['MAT', `${ts['MAT (°C)']}°C`, ts['MAT (°C)'] > 30 ? 'danger' : ts['MAT (°C)'] > 25 ? 'warn' : ''],
     ['Max WBT', `${ts['Max WBT (°C)']}°C`, ts['Max WBT (°C)'] >= 35 ? 'danger' : ts['Max WBT (°C)'] >= 31 ? 'warn' : ''],
     ['Days ≥ 110°F', ts['Days >= 110°F'], ts['Days >= 110°F'] > 60 ? 'danger' : ts['Days >= 110°F'] > 30 ? 'warn' : ''],
     ['PM2.5', `${ts['PM2.5 (µg/m³)']} µg/m³`, ts['PM2.5 (µg/m³)'] > 50 ? 'danger' : ts['PM2.5 (µg/m³)'] > 25 ? 'warn' : ''],
     ['Water Stress', `${ts['Water Stress Index']}/100`, ts['Water Stress Index'] > 75 ? 'danger' : ts['Water Stress Index'] > 50 ? 'warn' : ''],
-    ['Adaptive Capacity', `${ts['Adaptive Cap (%)']}%`, ts['Adaptive Cap (%)'] < 30 ? 'danger' : ts['Adaptive Cap (%)'] < 50 ? 'warn' : 'safe'],
-    ['Survivability Index', ts['Survivability Index (SI)'].toFixed(3), ts['Survivability Index (SI)'] < 0.25 ? 'danger' : ts['Survivability Index (SI)'] < 0.50 ? 'warn' : 'safe'],
+    ['Adaptive Cap', `${ts['Adaptive Cap (%)']}%`, ts['Adaptive Cap (%)'] < 30 ? 'danger' : ts['Adaptive Cap (%)'] < 50 ? 'warn' : 'safe'],
+    ['Survivability SI', ts['Survivability Index (SI)'].toFixed(3), ts['Survivability Index (SI)'] < 0.25 ? 'danger' : ts['Survivability Index (SI)'] < 0.50 ? 'warn' : 'safe'],
     ['Status', ts['Habitability Status'], ts['Habitability Status'].includes('Uninhabitable') ? 'danger' : ts['Habitability Status'].includes('Critical') ? 'warn' : 'safe'],
-    ['Population', `${ts['Population (M)']}M`, ''],
-    ['Cumul. Excess Deaths', `${ts['Cumul. Excess Mortality (M)']}M`, ts['Cumul. Excess Mortality (M)'] > 100 ? 'danger' : '']
+    ['Population', `${ts['Population (M)']}M`, ''], ['Excess Deaths', `${ts['Cumul. Excess Mortality (M)']}M`, ts['Cumul. Excess Mortality (M)'] > 100 ? 'danger' : '']
   ];
-
-  document.getElementById('regionStats').innerHTML = stats.map(([l, v, cls]) =>
-    `<div class="region-stat-row"><span class="region-stat-label">${l}</span><span class="region-stat-val ${cls}">${v}</span></div>`
-  ).join('');
+  document.getElementById('regionStats').innerHTML = stats.map(([l,v,c]) => `<div class="region-stat-row"><span class="region-stat-label">${l}</span><span class="region-stat-val ${c}">${v}</span></div>`).join('');
 }
 
 // ── CHARTS ──
 function initCharts() {
   chartUninhab = new Chart(document.getElementById('chartUninhab'), {
-    type: 'line',
-    data: { labels: [], datasets: [{
-      label: '% Uninhabitable',
-      data: [],
-      borderColor: '#c44050',
-      backgroundColor: 'rgba(196,64,80,0.1)',
-      fill: true,
-      borderWidth: 1.5,
-      pointRadius: 0,
-      tension: 0.3
-    }]},
-    options: {
-      responsive: true, maintainAspectRatio: false,
-      plugins: { legend: { display: false } },
-      scales: {
-        x: { ticks: { color: '#4a5a6a', font: { size: 8 }, maxTicksLimit: 8 }, grid: { color: '#1a2a38' } },
-        y: { ticks: { color: '#4a5a6a', font: { size: 8 }, callback: v => v + '%' }, grid: { color: '#1a2a38' }, min: 0, max: 100 }
-      }
-    }
+    type: 'line', data: { labels: [], datasets: [{ label: '% Uninhabitable', data: [], borderColor: '#c44050', backgroundColor: 'rgba(196,64,80,0.1)', fill: true, borderWidth: 1.5, pointRadius: 0, tension: 0.3 }] },
+    options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } },
+      scales: { x: { ticks: { color: '#4a5a6a', font: { size: 7 }, maxTicksLimit: 6 }, grid: { color: '#1a2a38' } },
+        y: { ticks: { color: '#4a5a6a', font: { size: 7 }, callback: v => v + '%' }, grid: { color: '#1a2a38' }, min: 0, max: 100 } } }
   });
-
   chartPop = new Chart(document.getElementById('chartPop'), {
-    type: 'line',
-    data: { labels: [], datasets: [{
-      label: 'Population (B)',
-      data: [],
-      borderColor: '#e8943a',
-      backgroundColor: 'rgba(232,148,58,0.08)',
-      fill: true,
-      borderWidth: 1.5,
-      pointRadius: 0,
-      tension: 0.3
-    }]},
-    options: {
-      responsive: true, maintainAspectRatio: false,
-      plugins: { legend: { display: false } },
-      scales: {
-        x: { ticks: { color: '#4a5a6a', font: { size: 8 }, maxTicksLimit: 8 }, grid: { color: '#1a2a38' } },
-        y: { ticks: { color: '#4a5a6a', font: { size: 8 }, callback: v => v.toFixed(1) + 'B' }, grid: { color: '#1a2a38' }, min: 0 }
-      }
-    }
+    type: 'line', data: { labels: [], datasets: [{ label: 'Population (B)', data: [], borderColor: '#e8943a', backgroundColor: 'rgba(232,148,58,0.08)', fill: true, borderWidth: 1.5, pointRadius: 0, tension: 0.3 }] },
+    options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } },
+      scales: { x: { ticks: { color: '#4a5a6a', font: { size: 7 }, maxTicksLimit: 6 }, grid: { color: '#1a2a38' } },
+        y: { ticks: { color: '#4a5a6a', font: { size: 7 }, callback: v => v.toFixed(1) + 'B' }, grid: { color: '#1a2a38' }, min: 0 } } }
   });
 }
 
 function updateCharts() {
   if (!simData) return;
-
-  // Build full time series for charts
   const labels = allYears.filter(y => y % 10 === 0 || y === 2000 || y === 2025 || y === 2500);
-  const uninhabData = labels.map(y => {
-    const g = simData.global[String(y)];
-    return g ? g.pctUninhabitable : null;
-  });
-  const popData = labels.map(y => {
-    const g = simData.global[String(y)];
-    return g ? g.totalPop / 1000 : null;
-  });
-
   chartUninhab.data.labels = labels;
-  chartUninhab.data.datasets[0].data = uninhabData;
-
-  // Add current year vertical line annotation (via a second dataset)
+  chartUninhab.data.datasets[0].data = labels.map(y => { const g = simData.global[String(y)]; return g ? g.pctUninhabitable : null; });
   chartPop.data.labels = labels;
-  chartPop.data.datasets[0].data = popData;
-
-  chartUninhab.update('none');
-  chartPop.update('none');
+  chartPop.data.datasets[0].data = labels.map(y => { const g = simData.global[String(y)]; return g ? g.totalPop / 1000 : null; });
+  chartUninhab.update('none'); chartPop.update('none');
 }
 
 // ── UPDATE ALL ──
 function updateAll() {
   document.getElementById('yearDisplay').textContent = currentYear;
-
   const g = simData.global[String(currentYear)];
   if (g) {
     document.getElementById('kpiSi').querySelector('.kpi-value').textContent = g.avgSI.toFixed(3);
     document.getElementById('kpiUninhab').querySelector('.kpi-value').textContent = g.pctUninhabitable.toFixed(1) + '%';
     document.getElementById('kpiPop').querySelector('.kpi-value').textContent = (g.totalPop / 1000).toFixed(1) + 'B';
     document.getElementById('kpiMort').querySelector('.kpi-value').textContent = (g.totalMortality / 1000).toFixed(2) + 'B';
-
     document.getElementById('hdrUninhab').textContent = g.pctUninhabitable.toFixed(1) + '%';
     document.getElementById('hdrPop').textContent = (g.totalPop / 1000).toFixed(1) + 'B';
   }
-
-  updateNextThreshold();
-  updateMapLayer();
-  updateMarkers();
-  updateRegionPanel();
+  updateNextThreshold(); updateMapLayer(); updateMarkers(); updateRegionPanel();
 }
 
 function updateNextThreshold() {
   const el = document.getElementById('nextThreshold');
-  // Find the next region to become uninhabitable after current year
   const fu = simData.first_uninhabitable;
-  let nextRegion = null, nextYear = 9999;
-  for (const [r, y] of Object.entries(fu)) {
-    if (y > currentYear && y < nextYear) {
-      nextYear = y; nextRegion = r;
-    }
-  }
-  if (nextRegion) {
-    const meta = simData.region_meta[nextRegion];
-    const yrsAway = nextYear - currentYear;
-    el.innerHTML = `<strong style="color:#c44050">${nextRegion}</strong> (${meta.country})<br>
-      Becomes <span style="color:#c44050">Uninhabitable</span> in <strong>${nextYear}</strong> — 
-      <span style="color:var(--thermal-amber)">${yrsAway} years</span> from now`;
+  let nr = null, ny = 9999;
+  for (const [r, y] of Object.entries(fu)) { if (y > currentYear && y < ny) { ny = y; nr = r; } }
+  if (nr) {
+    const m = simData.region_meta[nr];
+    el.innerHTML = `<strong style="color:#c44050">${nr}</strong> (${m.country})<br>Uninhabitable in <strong>${ny}</strong> — <span style="color:#e8943a">${ny - currentYear} years</span>`;
   } else {
     const g = simData.global[String(currentYear)];
-    if (g && g.pctUninhabitable > 90) {
-      el.innerHTML = `<span style="color:#6b3fa0">All regions uninhabitable.</span> Only boreal refugia remain marginally habitable.`;
-    } else {
-      el.innerHTML = `No remaining regions to cross threshold.`;
-    }
+    el.innerHTML = g && g.pctUninhabitable > 90
+      ? '<span style="color:#6b3fa0">All regions uninhabitable.</span> Only boreal refugia remain.'
+      : 'No remaining thresholds to cross.';
   }
 }
 
 // ── EVENTS ──
 function bindEvents() {
-  document.getElementById('btnPrev').addEventListener('click', () => {
-    if (yearIndex > 0) { yearIndex--; currentYear = allYears[yearIndex]; updateAll(); }
-  });
-  document.getElementById('btnNext').addEventListener('click', () => {
-    if (yearIndex < allYears.length - 1) { yearIndex++; currentYear = allYears[yearIndex]; updateAll(); }
-  });
+  document.getElementById('btnPrev').addEventListener('click', () => { if (yearIndex > 0) { yearIndex--; currentYear = allYears[yearIndex]; updateAll(); } });
+  document.getElementById('btnNext').addEventListener('click', () => { if (yearIndex < allYears.length - 1) { yearIndex++; currentYear = allYears[yearIndex]; updateAll(); } });
   document.getElementById('btnPlay').addEventListener('click', togglePlay);
-  document.getElementById('sidebarToggle').addEventListener('click', () => {
-    document.getElementById('sidebar').classList.toggle('collapsed');
-  });
-
-  document.querySelectorAll('.header-speed-btn').forEach(btn => {
-    btn.addEventListener('click', function() {
-      document.querySelectorAll('.header-speed-btn').forEach(b => b.classList.remove('active'));
-      this.classList.add('active');
-      playSpeed = parseInt(this.dataset.speed);
+  document.querySelectorAll('.header-speed-btn[data-speed]').forEach(b => {
+    b.addEventListener('click', function() {
+      document.querySelectorAll('.header-speed-btn[data-speed]').forEach(x => x.classList.remove('active'));
+      this.classList.add('active'); playSpeed = parseInt(this.dataset.speed);
       if (isPlaying) { stopPlay(); startPlay(); }
     });
   });
-
+  document.getElementById('btnLeftPanel').addEventListener('click', () => document.getElementById('sidebarLeft').classList.toggle('collapsed'));
+  document.getElementById('btnRightPanel').addEventListener('click', () => document.getElementById('sidebarRight').classList.toggle('collapsed'));
   document.addEventListener('keydown', e => {
-    if (e.key === 'ArrowLeft') { document.getElementById('btnPrev').click(); }
-    if (e.key === 'ArrowRight') { document.getElementById('btnNext').click(); }
+    if (e.key === 'ArrowLeft') document.getElementById('btnPrev').click();
+    if (e.key === 'ArrowRight') document.getElementById('btnNext').click();
     if (e.key === ' ') { e.preventDefault(); togglePlay(); }
   });
 }
 
-function togglePlay() {
-  if (isPlaying) stopPlay(); else startPlay();
-}
-
+function togglePlay() { isPlaying ? stopPlay() : startPlay(); }
 function startPlay() {
-  isPlaying = true;
-  document.getElementById('btnPlay').textContent = '⏸';
-  document.getElementById('btnPlay').classList.add('playing');
-  playStep();
+  isPlaying = true; document.getElementById('btnPlay').textContent = '⏸'; document.getElementById('btnPlay').classList.add('playing'); playStep();
 }
-
-function stopPlay() {
-  isPlaying = false;
-  document.getElementById('btnPlay').textContent = '▶';
-  document.getElementById('btnPlay').classList.remove('playing');
-  if (playTimer) clearTimeout(playTimer);
-}
-
+function stopPlay() { isPlaying = false; document.getElementById('btnPlay').textContent = '▶'; document.getElementById('btnPlay').classList.remove('playing'); if (playTimer) clearTimeout(playTimer); }
 function playStep() {
   if (!isPlaying) return;
-  if (yearIndex < allYears.length - 1) {
-    yearIndex++;
-    currentYear = allYears[yearIndex];
-    updateAll();
-    playTimer = setTimeout(playStep, playSpeed);
-  } else {
-    stopPlay();
-  }
+  if (yearIndex < allYears.length - 1) { yearIndex++; currentYear = allYears[yearIndex]; updateAll(); playTimer = setTimeout(playStep, playSpeed); }
+  else stopPlay();
 }
 
-// ── START ──
 document.addEventListener('DOMContentLoaded', init);
 </script>
-
 </body>
 </html>
